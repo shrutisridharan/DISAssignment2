@@ -13,6 +13,7 @@ namespace Assignment_2
         public decimal Value()
         {
             int var = 0;
+            int testvar = 0;
             decimal value = 0.0m;
 
             // write your implementation here
