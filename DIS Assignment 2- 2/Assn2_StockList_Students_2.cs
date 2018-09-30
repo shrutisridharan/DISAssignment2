@@ -13,10 +13,40 @@ namespace Assignment_2
     public StockList MergeList(StockList listToMerge)
     {
       StockList resultList = new StockList();
+            // write your implementation here
+            
+            // Check for empty list
+            if (this.IsEmpty())
+            {
+                Console.WriteLine("List is empty!");
+            }
+            else
+            {
+                //Assign head pointer to the first stocklist
+                StockNode current_1 = this.head;
+                while ( current_1 != null)
+                {
+                    resultList.AddStock(current_1.StockHolding);
+                    current_1 = current_1.Next;
+                }
+            }
+                if (this.IsEmpty())
+                {
+                    Console.WriteLine("List is empty!");
+                }
+                else
+                //head of the mergelist is assigned to pointer of the second stocklist
+                   {
+                    StockNode current_2 = listToMerge.head;
+                    while (current_2 != null)
+                    {
+                        resultList.AddStock(current_2.StockHolding);
+                        current_2 = current_2.Next;
+                    }
 
-      // write your implementation here
-
-      return resultList;
+                    }
+     
+                return resultList;
     }
 
     //param        : NA
