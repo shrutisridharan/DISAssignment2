@@ -39,7 +39,20 @@ namespace Assignment_2
         //return type  : NA
         public void Print()
         {
-            // write your implementation here
+            if (this.IsEmpty())
+            {
+                Console.WriteLine("List is empty");
+
+            }
+            else
+            {
+                StockNode current = head;
+                while (current != null)
+                {
+                    Console.WriteLine(current.StockHolding);
+                    current = current.Next;
+                }
+            }
 
         }
     }
