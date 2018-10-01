@@ -219,18 +219,19 @@ namespace Assignment_2
       return currNodeTwo;
     }
 
-    
-    // FOR STUDENTS
 
-    //param        : NA
-    //summary      : Sort the list by descending number of holdings
-    //return       : NA
-    //return type  : NA
-    public void SortByValue()
-    {
-      // write your implementation here
+        // FOR STUDENTS
 
-    }
+        //param        : NA
+        //summary      : Sort the list by descending number of holdings
+        //return       : NA
+        //return type  : NA
+        public void SortByValue()
+        {
+            // write your implementation here
+            
+            
+        }
 
     //param        : NA
     //summary      : Sort the list alphabatically
@@ -238,8 +239,38 @@ namespace Assignment_2
     //return type  : NA
     public void SortByName()
     {
-      // write your implementation here
+            // write your implementation here
 
+            StockNode currNodeOne = this.head;
+            StockNode current = this.head;
+            StockNode nextNodeOne = this.head.Next;
+            StockNode temp;
+
+            if (this.IsEmpty())
+            {
+                Console.WriteLine("List is empty");
+            }
+
+            while (current != null)
+            {
+                while (nextNodeOne != null)
+                {
+                    if (currNodeOne.StockHolding.Name.CompareTo(nextNodeOne.StockHolding.Name) > 0)
+                    {
+                        currNodeOne = Swap(currNodeOne.StockHolding);
+                    }
+                    temp = currNodeOne;
+                    currNodeOne = nextNodeOne;
+                    nextNodeOne = temp.Next;
+
+                }
+
+                currNodeOne = this.head;
+                nextNodeOne = this.head.Next;
+                current = current.Next;
+
+            }
+
+        }
     }
-  }
 }
