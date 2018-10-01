@@ -69,10 +69,18 @@ namespace Assignment_2
     public int Length()
     {
       int length = 0;
-
-      // write your implementation here
-
-      return length;
+            // write your implementation here
+            if (this.IsEmpty())
+            {
+                Console.WriteLine("List is empty!");
+            }
+            StockNode current = this.head;
+            while (current != null)
+            {
+                length++;
+                current = current.Next;
+            }
+            return length;
     }
   }
 }
