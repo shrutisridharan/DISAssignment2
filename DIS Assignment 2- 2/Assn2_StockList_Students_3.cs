@@ -12,12 +12,23 @@ namespace Assignment_2
         //return type  : decimal
         public decimal Value()
         {
-            int var = 0;
-            decimal value = 0.0m;
+             
+            decimal value = 0.0m; 
+            StockNode current = head;
+            if (this.IsEmpty())
+            {
+                Console.WriteLine("List is empty");
 
-            // write your implementation here
+            }
+            while (current != null)
+            {
+                value = value + ((current.StockHolding.CurrentPrice) * (current.StockHolding.Holdings));
+                current = current.Next;
+            }
 
+           
             return value;
+          
         }
 
         //param  (StockList) listToCompare     : StockList which has to comared for similarity index
@@ -28,7 +39,7 @@ namespace Assignment_2
         {
             int similarityIndex = 0;
 
-            StockNode current_2 = null;
+            StockNode current2 = null;
             if (this.IsEmpty())
             {
 
@@ -38,19 +49,19 @@ namespace Assignment_2
             {
                 return 0;
             }
-            StockNode current_1 = head; // head pointer is assigned to the first stocklist
-            while (current_1 != null) // traversing through the list until the pointer is pointing to empty location
+            StockNode current1 = head; // head pointer is assigned to the first stocklist
+            while (current1 != null) // traversing through the list until the pointer is pointing to empty location
             {
-                current_2 = listToCompare.head; //head of the comparable list is assigned to current 2
-                while (current_2 != null)
+                current2 = listToCompare.head; //head of the comparable list is assigned to current 2
+                while (current2 != null)
                 {
-                    if (current_1.StockHolding.Name == current_2.StockHolding.Name) // checking if the value both ponters are pointing to are the same.
+                    if (current1.StockHolding.Name == current2.StockHolding.Name) // checking if the value both ponters are pointing to are the same.
                     {
                         similarityIndex = similarityIndex + 1; //incrementing the similarity index every ime the stockholding name is the same
                     }
-                    current_2 = current_2.Next; // moving to th epointer to next stock in stocklist until stocklist is empty
+                    current2 = current2.Next; // moving to th epointer to next stock in stocklist until stocklist is empty
                 }
-                current_1 = current_1.Next;
+                current1 = current1.Next;
             }
 
                 return similarityIndex; // count of similar nodes
