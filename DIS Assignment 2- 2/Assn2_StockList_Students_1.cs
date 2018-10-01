@@ -248,7 +248,7 @@ namespace Assignment_2
 
             if (this.IsEmpty())
             {
-                Console.WriteLine("List is empty");
+                Console.WriteLine("List is empty!");
             }
 
             while (current != null)
