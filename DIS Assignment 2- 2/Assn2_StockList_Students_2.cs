@@ -56,10 +56,24 @@ namespace Assignment_2
     public Stock MostShares()
     {
       Stock mostShareStock = null;
+     // write your implementation here
+     StockNode current = this.head;
+       if (this.IsEmpty())
+       {
+         Console.WriteLine("List is empty!");
+       }
+       mostShareStock = current.StockHolding;
+       current = current.Next;
+       while (current!=null)
+        {
+            if(current.StockHolding.Holdings>mostShareStock.Holdings)
+                {
+                    mostShareStock = current.StockHolding;
+                }
+                current = current.Next;
+        }
 
-      // write your implementation here
-
-      return mostShareStock;
+       return mostShareStock;
     }
 
     //param        : NA
