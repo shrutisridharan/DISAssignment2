@@ -228,8 +228,39 @@ namespace Assignment_2
         //return type  : NA
         public void SortByValue()
         {
-            // write your implementation here
-            
+       
+            StockNode currNodeOne = this.head;
+            StockNode nextNodeOne = this.head.Next;
+            StockNode temp;
+
+            if (this.IsEmpty())
+            {
+                Console.WriteLine("List is empty!");
+            }
+
+            int listLength = this.Length();
+
+            while (listLength > 0)
+            {
+                while (nextNodeOne != null)
+                {
+                    if (currNodeOne.StockHolding.Holdings < nextNodeOne.StockHolding.Holdings)
+                    {
+                        currNodeOne = Swap(currNodeOne.StockHolding);
+                    }
+
+                    temp = currNodeOne;
+                    currNodeOne = nextNodeOne;
+                    nextNodeOne = nextNodeOne.Next;
+
+                }
+
+                currNodeOne = this.head;
+                nextNodeOne = this.head.Next;
+
+                listLength--;
+
+	        }
             
         }
 
@@ -239,10 +270,7 @@ namespace Assignment_2
     //return type  : NA
     public void SortByName()
     {
-            // write your implementation here
-
             StockNode currNodeOne = this.head;
-            StockNode current = this.head;
             StockNode nextNodeOne = this.head.Next;
             StockNode temp;
 
@@ -250,8 +278,10 @@ namespace Assignment_2
             {
                 Console.WriteLine("List is empty!");
             }
+            
+            int listLength = this.Length();
 
-            while (current != null)
+            while (listLength > 0)
             {
                 while (nextNodeOne != null)
                 {
@@ -267,7 +297,8 @@ namespace Assignment_2
 
                 currNodeOne = this.head;
                 nextNodeOne = this.head.Next;
-                current = current.Next;
+
+                listLength-- ;
 
             }
 
